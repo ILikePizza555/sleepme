@@ -1,16 +1,13 @@
-html
-    head
-        title Turn my computer off!
-    body
-        .center
-            h1 Turn my computer off!
-            p Using revolutionary Node.js asynchronous blockchain Secure Shell technology, it is now possible to turn my computer off, remotely, using the internet!
-            p Please don't abuse this.
-            form(action="/sleep", method="post")
-                label(for="time") Time until poweroff (in seconds)
-                input#(type="number", name="time")
-                label(for="message") Message to send me
-                input#(type="text", name="message")
-                input(type="submit", value="Turn it Off!")
-            h2 Links
+extends base.pug
+block content
+    h1 Turn my computer off!
+    p Using revolutionary Node.js asynchronous blockchain Secure Shell technology, it is now possible to turn my computer off, remotely, using the internet!
+    p Please don't abuse this.
+    form(action="/sleep", method="post")
+        label(for="time") Time until poweroff (in seconds)
+        input#(type="number", name="time")
+        label(for="message") Message to send me
+        input#(type="text", name="message")
+        input(type="submit", value="Turn it Off!")
+    h2 Links
             
