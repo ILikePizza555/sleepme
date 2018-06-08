@@ -9,6 +9,7 @@
     "eslint": "^4.19.1"
   },
   "dependencies": {
-    "commander": "^2.15.1"
+    "commander": "^2.15.1",
+    "express": "^4.16.3"
   }
 }
