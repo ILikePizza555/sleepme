@@ -3,11 +3,13 @@ block content
     h1 Turn my computer off!
     p Using revolutionary Node.js asynchronous blockchain Secure Shell technology, it is now possible to turn my computer off, remotely, using the internet!
     p Please don't abuse this.
-    form(action="/sleep", method="post")
-        label(for="time") Time until poweroff (in seconds)
-        input#(type="number", name="time")
-        label(for="message") Message to send me
-        input#(type="text", name="message")
+    form.center(action="/sleep", method="post", style="width:50%")
+        .formgroup
+            label(for="time") Time until poweroff (in seconds)
+            input(type="number", name="time")
+        .formgroup
+            label(for="message") Message to send me
+            input(type="text", name="message")
         input(type="submit", value="Turn it Off!")
     h2 Links
             
