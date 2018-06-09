@@ -1,10 +1,7 @@
-const express = require("express")
+const express = require("express");
 const bodyParser = require('body-parser');
-const notifier = require("node-notifier")
-const exec = require("child_process").exec
-
-// Logging function for exec
-const puts = (error, stdout, stderr) => console.log(stdout)
+const notifier = require("node-notifier");
+const exec = require("child_process").exec;
 
 // Snark for the sleep page
 const snark = [
@@ -23,6 +20,12 @@ const snark = [
     "I wonder if I should make a Twitch stream.",
     "Please hire me."
 ]
+
+function sleep() {
+    exec(
+        "rundll32.exe powrprof.dll,SetSuspendState 0,1,0", 
+        (error, stdout, stderr) => {console.log(stdout); console.error(stderr);});
+}
 
 const app = express();
 app.use(bodyParser.json());
@@ -45,6 +48,9 @@ app.post("/sleep", function(req, res) {
     if (req.body.message) { notifier.notify(req.body.message); }
 
     res.render("sleep", {"title": "Success!", "snark": snark[Math.floor(Math.random() * snark.length)]});
+
+    console.log("Going to sleep in " + time + " seconds, message: " + req.body.message)
+    setTimeout(sleep, time * 1000);
 });
 
 app.listen(9000)
